@@ -1,0 +1,4 @@
+numpy==2.2.4
+opencv-python==4.11.0.86
+paho-mqtt==2.1.0
+pyrealsense2==2.55.1.6486
