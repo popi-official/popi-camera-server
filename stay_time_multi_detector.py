@@ -22,6 +22,7 @@ CERT = os.getenv("CERT")
 PRIVATE_KEY = os.getenv("PRIVATE_KEY")
 ROOT_CA = os.getenv("ROOT_CA")
 CLIENT_ID = os.getenv("CLIENT_ID")
+DEVICE_ID = os.getenv("DEVICE_ID", CLIENT_ID)
 
 # =========================
 # MQTT Client 연결
@@ -123,24 +124,28 @@ class StayTimeDetector2:
             return InterestRank.RANK_5 if duration >= 5 else InterestRank.RANK_6 if duration >= 3 else None
         return None
 
-    def _publish_event(self, zone, interest, distance, duration):
+    def _publish_event(self, zone, interest, distance, duration, event_type="stay"):
         now = datetime.now()
 
         # MQTT TOPIC 설정
-        topic = f"popup/{self.popup_id}/{zone['location']}/item"
+        topic = f"popup/{self.popup_id}/event/{event_type}"
 
         payload = {
-            "popup_id": self.popup_id,
-            "location": zone["location"],
-            "item_id": zone["item_id"],
-            "type": "detection",
-            "interest": int(interest),
-            "distance": round(distance, 2),
-            "duration": round(duration, 2),
-            "timestamp": now.isoformat() + "Z",
-            "date": now.strftime("%Y-%m-%d"),
-            "time": now.strftime("%H:%M")
+            "meta": {
+                "device_id": DEVICE_ID,
+                "popup_id": self.popup_id,
+                "location": zone["location"],
+                "item_id": zone["item_id"],
+                "event_type": event_type,
+                "timestamp": now.isoformat() + "Z"
+            },
+            "data": {
+                "interest": int(interest),
+                "distance": round(distance, 2),
+                "duration": round(duration, 2)
+            }
         }
+
         # MQTT 발행
         mqtt_connection.publish(
             topic=topic,
@@ -150,7 +155,7 @@ class StayTimeDetector2:
 
         time.sleep(0.1)
 
-        print(f"[MQTT] \nTopic: {topic} \nPayload: {json.dumps(payload)}")
+        print(f"Topic: {topic} \nPayload: {json.dumps(payload)}")
 
     def _get_avg_distance(self, frame, cx, cy):
         distances = []
@@ -196,7 +201,7 @@ class StayTimeDetector2:
                             avg = zone["distance_sum"] / zone["frame_count"]
                             interest = self._classify_interest(avg, duration)
                             if interest:
-                                self._publish_event(zone, interest, avg, duration)
+                                self._publish_event(zone, interest, avg, duration, event_type="stay")
 
                         # 초기화
                         zone.update({"detected": False, "start_time": None, "distance_sum": 0.0, "frame_count": 0})
