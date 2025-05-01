@@ -22,7 +22,7 @@ CERT = os.getenv("CERT")
 PRIVATE_KEY = os.getenv("PRIVATE_KEY")
 ROOT_CA = os.getenv("ROOT_CA")
 CLIENT_ID = os.getenv("CLIENT_ID")
-DEVICE_ID = os.getenv("DEVICE_ID", CLIENT_ID)
+DEVICE_ID = os.getenv("DEVICE_ID")
 
 # =========================
 # MQTT Client 연결
