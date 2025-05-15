@@ -47,13 +47,13 @@ mqtt_connection = connect_mqtt()
 # =========================
 # 관심도 등급 정의
 # =========================
-class InterestRank(IntEnum):
-    RANK_1 = 1
-    RANK_2 = 2
-    RANK_3 = 3
+class ScoreRank(IntEnum):
+    RANK_1 = 10
+    RANK_2 = 8
+    RANK_3 = 6
     RANK_4 = 4
-    RANK_5 = 5
-    RANK_6 = 6
+    RANK_5 = 2
+    RANK_6 = 0
 
 # =========================
 # StayTimeDetector 클래스
@@ -115,16 +115,16 @@ class StayTimeDetector2:
 
         return zones
 
-    def _classify_interest(self, distance, duration):
+    def _classify_score(self, distance, duration):
         if 0.0 <= distance <= 0.5:
-            return InterestRank.RANK_1 if duration >= 5 else InterestRank.RANK_2 if duration >= 3 else None
+            return ScoreRank.RANK_1 if duration >= 5 else ScoreRank.RANK_2 if duration >= 3 else None
         elif 0.5 < distance <= 0.8:
-            return InterestRank.RANK_3 if duration >= 5 else InterestRank.RANK_4 if duration >= 3 else None
+            return ScoreRank.RANK_3 if duration >= 5 else ScoreRank.RANK_4 if duration >= 3 else None
         elif 0.8 < distance <= 1.2:
-            return InterestRank.RANK_5 if duration >= 5 else InterestRank.RANK_6 if duration >= 3 else None
+            return ScoreRank.RANK_5 if duration >= 5 else ScoreRank.RANK_6 if duration >= 3 else None
         return None
 
-    def _publish_event(self, zone, interest, distance, duration, event_type="stay"):
+    def _publish_event(self, zone, score, distance, duration, event_type="stay"):
         now = datetime.now()
 
         # MQTT TOPIC 설정
@@ -140,7 +140,7 @@ class StayTimeDetector2:
                 "timestamp": now.isoformat() + "Z"
             },
             "data": {
-                "interest": int(interest),
+                "score": int(score),
                 "distance": round(distance, 2),
                 "duration": round(duration, 2)
             }
@@ -199,9 +199,9 @@ class StayTimeDetector2:
                         if zone["detected"]:
                             duration = time.time() - zone["start_time"]
                             avg = zone["distance_sum"] / zone["frame_count"]
-                            interest = self._classify_interest(avg, duration)
-                            if interest:
-                                self._publish_event(zone, interest, avg, duration, event_type="stay")
+                            score = self._classify_score(avg, duration)
+                            if score:
+                                self._publish_event(zone, score, avg, duration, event_type="stay")
 
                         # 초기화
                         zone.update({"detected": False, "start_time": None, "distance_sum": 0.0, "frame_count": 0})
