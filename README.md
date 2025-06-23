@@ -3,6 +3,24 @@
 RealSense D415 카메라와 MQTT를 이용한 거리 감지 및 체류 시간 메시지 송신 프로그램입니다.
 
 ---
+## Architecture
+<img width="881" alt="popi_camera" src="https://github.com/user-attachments/assets/3ab17788-324d-4be6-8fe6-52e0bf8ebf96" />
+
+## Tech Stack
+
+### IoT & Messaging
+![MQTT](https://img.shields.io/badge/MQTT-FF6600?logo=solace&logoColor=white&style=for-the-badge)
+![AWS IoT Core](https://img.shields.io/badge/AWS%20IoT%20Core-232F3E?logo=amazonaws&logoColor=white&style=for-the-badge)
+![IoT Rule](https://img.shields.io/badge/IoT%20Rule-A3BFFA?logo=awslambda&logoColor=white&style=for-the-badge)
+![Amazon SQS](https://img.shields.io/badge/Amazon%20SQS-FF4F8B?logo=amazonsqs&logoColor=white&style=for-the-badge)
+
+### Serverless & Storage
+![AWS Lambda](https://img.shields.io/badge/AWS%20Lambda-FF9900?logo=awslambda&logoColor=white&style=for-the-badge)
+![Amazon DynamoDB](https://img.shields.io/badge/DynamoDB-4053D6?logo=amazondynamodb&logoColor=white&style=for-the-badge)
+
+### Camera & Device SDK
+- **Intel RealSense D415**
+- **pyrealsense2** – 거리 측정 및 Depth 데이터 획득용 SDK
 
 ## Requirements
 
@@ -47,3 +65,4 @@ pip install -r requirements.txt
 ```bash
 python {파일명}.py
 ```
+
