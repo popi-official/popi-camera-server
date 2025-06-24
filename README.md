@@ -40,7 +40,7 @@ PoP!은 Intel RealSense D415 카메라를 활용해
 <img width="881" alt="popi_camera" src="https://github.com/user-attachments/assets/3ab17788-324d-4be6-8fe6-52e0bf8ebf96" />
 </br></br>
 
-### Tech Stack
+### 🖥️ Tech Stack
 
 #### IoT & Messaging - <img src="https://img.shields.io/badge/MQTT-FF6600?logo=solace&logoColor=white&style=for-the-social"> <img src="https://img.shields.io/badge/AWS%20IoT%20Core-232F3E?logo=amazonaws&logoColor=white&style=for-the-social"> <img src="https://img.shields.io/badge/IoT%20Rule-A3BFFA?logo=awslambda&logoColor=white&style=for-the-social"> <img src="https://img.shields.io/badge/Amazon%20SQS-FF4F8B?logo=amazonsqs&logoColor=white&style=for-the-social">
 
@@ -94,4 +94,11 @@ pip install -r requirements.txt
 ```bash
 python {파일명}.py
 ```
+</br></br>
+## 👥 Contributors
+
+### 🧑‍💻 Server Developers
+|            Hyuntaei            |        Sangwook        |        Jeongyeon        |         Hyungsuh         |        Youngsang        |
+|:------------------------------:|:----------------------:|:----------------------:|:------------------------:|:------------------------:|
+| <img src="https://avatars.githubusercontent.com/u/145987233?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/ht3064" target="_blank"><img src="https://img.shields.io/badge/ht3064-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/140885810?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/woogieon8on" target="_blank"><img src="https://img.shields.io/badge/woogieon8on-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/128298789?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/jeongyeon0208" target="_blank"><img src="https://img.shields.io/badge/jeongyeon0208-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/43169705?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/ohhyungsuh" target="_blank"><img src="https://img.shields.io/badge/ohhyungsuh-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/51320595?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/0ssang" target="_blank"><img src="https://img.shields.io/badge/0ssang-181717?style=for-the-social&logo=github&logoColor=white"/></a> |
 
