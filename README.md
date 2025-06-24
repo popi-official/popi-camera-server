@@ -26,22 +26,23 @@ PoP!은 Intel RealSense D415 카메라를 활용해
 고객이 어떤 상품 앞에서 얼마나 머물렀는지,
 얼마나 가까이 다가갔는지를 RealSense D415 카메라로 측정하여
 체류 시간 + 거리 기반의 관심도를 분석합니다.
+</br></br>
 
 ### 🔥 인기 상품 자동 감지
 관심도 데이터가 일정 기준을 초과한 상품을 실시간 인기 상품으로 분류하고,
 대시보드에 가시적으로 표시하여 빠르게 트렌드를 파악할 수 있습니다.
+</br></br>
 
 ### 📦 발주량 추천 지원
 관심도가 높은 상품은 향후 판매 가능성이 높기 때문에,
 예측 발주량을 자동으로 제안해 상품 소진에 대비할 수 있습니다.
+</br></br>
 
----
 ## Architecture
 <img width="881" alt="popi_camera" src="https://github.com/user-attachments/assets/3ab17788-324d-4be6-8fe6-52e0bf8ebf96" />
 </br></br>
 
 ### 🖥️ Tech Stack
-
 #### IoT & Messaging - <img src="https://img.shields.io/badge/MQTT-FF6600?logo=solace&logoColor=white&style=for-the-social"> <img src="https://img.shields.io/badge/AWS%20IoT%20Core-232F3E?logo=amazonaws&logoColor=white&style=for-the-social"> <img src="https://img.shields.io/badge/IoT%20Rule-A3BFFA?logo=awslambda&logoColor=white&style=for-the-social"> <img src="https://img.shields.io/badge/Amazon%20SQS-FF4F8B?logo=amazonsqs&logoColor=white&style=for-the-social">
 
 #### Serverless & Storage - <img src="https://img.shields.io/badge/AWS%20Lambda-FF9900?logo=awslambda&logoColor=white&style=for-the-social"> <img src="https://img.shields.io/badge/DynamoDB-4053D6?logo=amazondynamodb&logoColor=white&style=for-the-social">
@@ -71,8 +72,7 @@ pip install -r requirements.txt
 | awsiotsdk     | `>=1.14.8`      |
 | python-dotenv | `>=1.0.1`       |
 
----
-
+</br></br>
 ## 실행 방법
 
 1. RealSense D415 카메라를 PC에 연결합니다.
@@ -95,10 +95,11 @@ pip install -r requirements.txt
 python {파일명}.py
 ```
 </br></br>
-## 👥 Contributors
 
+## 👥 Contributors
 ### 🧑‍💻 Server Developers
-|            Hyuntaei            |        Sangwook        |        Jeongyeon        |         Hyungsuh         |        Youngsang        |
-|:------------------------------:|:----------------------:|:----------------------:|:------------------------:|:------------------------:|
-| <img src="https://avatars.githubusercontent.com/u/145987233?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/ht3064" target="_blank"><img src="https://img.shields.io/badge/ht3064-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/140885810?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/woogieon8on" target="_blank"><img src="https://img.shields.io/badge/woogieon8on-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/128298789?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/jeongyeon0208" target="_blank"><img src="https://img.shields.io/badge/jeongyeon0208-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/43169705?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/ohhyungsuh" target="_blank"><img src="https://img.shields.io/badge/ohhyungsuh-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/51320595?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/0ssang" target="_blank"><img src="https://img.shields.io/badge/0ssang-181717?style=for-the-social&logo=github&logoColor=white"/></a> |
+|                                                                                                                                              Hyungsuh                                                                                                                                              |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://avatars.githubusercontent.com/u/43169705?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/ohhyungsuh" target="_blank"><img src="https://img.shields.io/badge/ohhyungsuh-181717?style=for-the-social&logo=github&logoColor=white"/></a> |
+
 
